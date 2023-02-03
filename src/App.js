@@ -1,7 +1,9 @@
+import DevamEdenList from "./features/devamEden/DevamEdenList";
+
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
+      <DevamEdenList />
     </div>
   );
 }
