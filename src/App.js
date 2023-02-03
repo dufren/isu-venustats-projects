@@ -1,10 +1,7 @@
-import List from "./features/list/List";
-
-
 function App() {
   return (
     <div className="App">
-      <List />
+      <h1>hello</h1>
     </div>
   );
 }

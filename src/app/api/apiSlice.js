@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-const baseQueryWithHeader = fetchBaseQuery({
+const baseQuery = fetchBaseQuery({
     baseUrl: process.env.REACT_APP_BASE_URL,
     prepareHeaders: (headers) => {
         headers.set("Authorization", process.env.REACT_APP_AUTH)
@@ -9,6 +9,6 @@ const baseQueryWithHeader = fetchBaseQuery({
 })
 
 export const apiSlice = createApi({
-    baseQuery: baseQueryWithHeader,
+    baseQuery: baseQuery,
     endpoints: builder => ({})
 })
