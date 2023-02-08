@@ -12,8 +12,6 @@ const DevamEdenList = () => {
         error
     } = useGetDevamEdenProjelerQuery()
 
-    console.log(error);
-
     return (
         <div>DevamEdenList</div>
     )
