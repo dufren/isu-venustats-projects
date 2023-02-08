@@ -10,8 +10,6 @@ const TamamlananList = () => {
         error
     } = useGetTamamlananProjelerQuery()
 
-    console.log(data)
-
     return (
         <div>Tamamlanan</div>
     )
