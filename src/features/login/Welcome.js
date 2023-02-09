@@ -1,19 +1,21 @@
-import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-slate-900 text-white flex justify-center items-center text-center gap-32">
       <div>
         <h1 className="text-3xl">Devam Eden Projeler</h1>
         <button
           className="mr-10 mt-4 text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
-          onClick={() => Navigate("/projeler/devam-eden-ulusal")}
+          onClick={() => navigate("/projeler/devam-eden-ulusal")}
         >
           Ulusal
         </button>
         <button
           className="text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
-          onClick={() => Navigate("/projeler/devam-eden-uluslararası")}
+          onClick={() => navigate("/projeler/devam-eden-uluslararası")}
         >
           Uluslararası
         </button>
@@ -23,13 +25,13 @@ const Welcome = () => {
         <h1 className="text-3xl">Tamamlanan Projeler</h1>
         <button
           className="mr-10 mt-4 text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
-          onClick={() => Navigate("/projeler/tamamlanan-ulusal")}
+          onClick={() => navigate("/projeler/tamamlanan-ulusal")}
         >
           Ulusal
         </button>
         <button
           className="text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
-          onClick={() => Navigate("/projeler/tamamlanan-uluslararası")}
+          onClick={() => navigate("/projeler/tamamlanan-uluslararası")}
         >
           Uluslararası
         </button>
