@@ -24,7 +24,7 @@ const DevamEdenUluslararası = () => {
     let content = (
       <div className="overflow-auto relative h-screen">
         <table className="table-fixed w-full">
-          <thead className="bg-gray-100 border-gray-300 shadow-lg sticky top-0 border-x">
+          <thead className="bg-gray-100 shadow-lg sticky top-0">
             <tr className="text-left text-sm">
               <th className="p-3 font-semibold w-[150px]">
                 Fon Sağlayan Kuruluş
