@@ -1,19 +1,13 @@
 const Proje = ({ proje }) => {
   return (
-    <tr className="border border-gray-300">
-      <td className="p-3 text-sm text-gray-700 text-left">
-        {proje.cagriKoduTxt}
-      </td>
-      <td className="p-3 text-sm text-gray-700 text-left">
-        {proje.fonSaglayanKurulusTxt}
-      </td>
-      <td className="p-3 text-sm text-gray-700 text-left">
-        {proje.projeAdiTxt}
-      </td>
-      <td className="p-3 text-sm text-gray-700 text-left">
+    <tr className="text-sm text-gray-700 border-b border-gray-300 shadow">
+      <td className="p-3">{proje.cagriKoduTxt}</td>
+      <td className="p-3">{proje.fonSaglayanKurulusTxt}</td>
+      <td className="p-3">{proje.projeAdiTxt}</td>
+      <td className="p-3">
         {proje.ddlDevamEdenProjeBaslangicTarihi.split(" ")[0]}
       </td>
-      <td className="p-3 text-sm text-gray-700 text-left">
+      <td className="p-3">
         {proje.ddlDevamEdenProjeBitisTarihi.split(" ")[0]}
       </td>
     </tr>
