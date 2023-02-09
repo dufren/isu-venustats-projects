@@ -1,20 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Welcome = () => {
   return (
-    <div className="bg-slate-300 min-h-screen text-white text-center">
-      <p className="text-2xl text-gray-700">
-        <Link to="/devam-eden-ulusal">Devam Eden Ulusal</Link>
-      </p>
-      <p className="text-2xl mt-5 text-gray-700">
-        <Link to="/devam-eden-uluslararası">Devam Eden Uluslararası</Link>
-      </p>
-      <p className="text-2xl mt-5 text-gray-700">
-        <Link to="/tamamlanan-ulusal">Tamamlanan Ulusal</Link>
-      </p>
-      <p className="text-2xl mt-5 text-gray-700">
-        <Link to="/tamamlanan-uluslararası">Tamamlanan Uluslararası</Link>
-      </p>
+    <div className="min-h-screen bg-slate-900 text-white flex justify-center items-center text-center gap-32">
+      <div>
+        <h1 className="text-3xl">Devam Eden Projeler</h1>
+        <button
+          className="mr-10 mt-4 text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
+          onClick={() => <Navigate to="/projeler/devam-eden-ulusal" />}
+        >
+          Ulusal
+        </button>
+        <button
+          className="text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
+          onClick={() => <Navigate to="/projeler/devam-eden-uluslararası" />}
+        >
+          Uluslararası
+        </button>
+      </div>
+
+      <div>
+        <h1 className="text-3xl">Tamamlanan Projeler</h1>
+        <button
+          className="mr-10 mt-4 text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
+          onClick={() => <Navigate to="/projeler/tamamlanan-ulusal" />}
+        >
+          Ulusal
+        </button>
+        <button
+          className="text-xl border border-white rounded-lg p-3 hover:bg-slate-600 duration-500"
+          onClick={() => <Navigate to="/projeler/tamamlanan-uluslararası" />}
+        >
+          Uluslararası
+        </button>
+      </div>
     </div>
   );
 };
