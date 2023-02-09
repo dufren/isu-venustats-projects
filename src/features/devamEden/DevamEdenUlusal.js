@@ -6,8 +6,6 @@ const DevamEdenUlusal = () => {
   const { data, isLoading, isSuccess, isError, isFetching } =
     useGetDevamEdenProjelerQuery();
 
-  let content;
-
   if (isLoading | isFetching | isError) {
     return (
       <PulseLoader className="text-center mt-72" size={50} color={"#828282"} />
@@ -22,26 +20,20 @@ const DevamEdenUlusal = () => {
     let tableContent =
       filteredUlusal?.length &&
       filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
-    content = (
-      <div className="overflow-auto relative">
+    let content = (
+      <div className="overflow-auto relative h-screen">
         <table className="table-fixed w-full">
-          <thead className="bg-gray-100 border border-gray-300">
-            <tr>
-              <th className="p-3 text-sm font-semibold text-left w-[120px]">
+          <thead className="bg-gray-100 border-gray-100 shadow-lg sticky top-0 border-x">
+            <tr className="text-left text-sm">
+              <th className="p-3 font-semibold w-[120px]">
                 Fon Sağlayan Kuruluş
               </th>
-              <th className="p-3 text-sm font-semibold text-left w-[120px]">
-                Çağrı Kodu
-              </th>
-              <th className="p-3 text-sm font-semibold text-left w-[200px] lg:w-[400px]">
+              <th className="p-3 font-semibold w-[120px]">Çağrı Kodu</th>
+              <th className="p-3 font-semibold w-[200px] lg:w-[400px]">
                 Projenin Adı
               </th>
-              <th className="p-3 text-sm font-semibold text-left w-[80px]">
-                Başlangıç Tarihi
-              </th>
-              <th className="p-3 text-sm font-semibold text-left w-[80px]">
-                Bitiş Tarihi
-              </th>
+              <th className="p-3 font-semibold w-[80px]">Başlangıç Tarihi</th>
+              <th className="p-3 font-semibold w-[80px]">Bitiş Tarihi</th>
             </tr>
           </thead>
           <tbody>{tableContent}</tbody>

@@ -5,7 +5,6 @@ import TamamlananUlusal from "./features/tamamlanan/TamamlananUlusal";
 import TamamlananUluslararası from "./features/tamamlanan/TamamlananUluslararası";
 import DevamEdenUlusal from "./features/devamEden/DevamEdenUlusal"
 import DevamEdenUluslararası from "./features/devamEden/DevamEdenUluslararası"
-import Deneme from "./features/login/Deneme";
 
 function App() {
 
@@ -17,7 +16,6 @@ function App() {
         <Route path="devam-eden-uluslararası" element={<DevamEdenUluslararası />} />
         <Route path="tamamlanan-ulusal" element={<TamamlananUlusal />} />
         <Route path="tamamlanan-uluslararası" element={<TamamlananUluslararası />} />
-        <Route path="deneme" element={<Deneme />} />
       </Route>
     </Routes>
   );

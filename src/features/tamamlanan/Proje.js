@@ -1,6 +1,6 @@
 const Proje = ({ proje }) => {
   return (
-    <tr className="border border-gray-300">
+    <tr className="border border-gray-300 shadow">
       <td className="p-3 text-sm text-gray-700 text-left">
         {proje.cagriKoduTxt}
       </td>
