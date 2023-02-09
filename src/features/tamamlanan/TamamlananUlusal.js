@@ -6,7 +6,7 @@ const TamamlananUlusal = () => {
   const { data, isLoading, isSuccess, isError, isFetching } =
     useGetTamamlananProjelerQuery();
 
-  if (isLoading | isFetching | isError) {
+  if (isLoading || isFetching || isError) {
     return (
       <PulseLoader className="text-center mt-72" size={50} color={"#828282"} />
     );
@@ -20,6 +20,7 @@ const TamamlananUlusal = () => {
     let tableContent =
       filteredUlusal?.length &&
       filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
+
     let content = (
       <div className="overflow-auto relative h-screen">
         <table className="w-full table-fixed">
