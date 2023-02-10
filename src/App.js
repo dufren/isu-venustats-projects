@@ -11,18 +11,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Welcome />} />
-<<<<<<< HEAD
-        <Route path="devam-eden-ulusal" element={<DevamEdenUlusal />} />
-        <Route
-          path="devam-eden-uluslararası"
-          element={<DevamEdenUluslararası />}
-        />
-        <Route path="tamamlanan-ulusal" element={<TamamlananUlusal />} />
-        <Route
-          path="tamamlanan-uluslararası"
-          element={<TamamlananUluslararası />}
-        />
-=======
         <Route path="projeler">
           <Route path="devam-eden-ulusal" element={<DevamEdenUlusal />} />
           <Route
@@ -35,7 +23,6 @@ function App() {
             element={<TamamlananUluslararası />}
           />
         </Route>
->>>>>>> d6664c0ea704b7a144c55598c708db04fb557d8f
       </Route>
     </Routes>
   );
