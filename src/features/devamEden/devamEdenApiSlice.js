@@ -12,10 +12,7 @@ export const devamEdenApiSlice = apiSlice.injectEndpoints({
       transformResponse: (responseData) => {
         responseData.map((project) => {
           for (const property in project) {
-            if (
-              project[property].toString().toLowerCase() === "null" ||
-              project[property] === ""
-            )
+            if (project[property] === ("NULL" || ""))
               project[property] = "----";
           }
           return project;
