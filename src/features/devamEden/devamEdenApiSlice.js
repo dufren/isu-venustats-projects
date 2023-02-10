@@ -4,7 +4,7 @@ export const devamEdenApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getDevamEdenProjeler: builder.query({
       query: () => ({
-        url: "/venustats-devameden-projeler-api/api/DevamEdenProjeler",
+        url: process.env.REACT_APP_DEVAM_EDEN,
         headers: {
           Authorization: process.env.REACT_APP_AUTH,
         },
