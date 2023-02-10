@@ -22,19 +22,25 @@ const TamamlananUluslararası = () => {
       filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
 
     let content = (
-      <div className="overflow-auto relative h-screen">
-        <table className="w-full table-fixed">
-          <thead className="bg-gray-100 shadow-lg sticky top-0">
-            <tr className="text-sm text-left">
-              <th className="p-3 font-semibold w-[120px]">
+      <div className="overflow-x-auto h-screen">
+        <table className="table table-compact w-full">
+          <thead className="sticky top-0">
+            <tr>
+              <td className="whitespace-normal lg:whitespace-nowrap">
                 Fon Sağlayan Kuruluş
+              </td>
+              <th className="whitespace-normal lg:whitespace-nowrap">
+                Çağrı Kodu
               </th>
-              <th className="p-3 font-semibold w-[120px]">Çağrı Kodu</th>
-              <th className="p-3 font-semibold w-[200px] lg:w-[400px]">
+              <th className="whitespace-normal lg:whitespace-nowrap">
                 Projenin Adı
               </th>
-              <th className="p-3 font-semibold w-[80px]">Başlangıç Tarihi</th>
-              <th className="p-3 font-semibold w-[80px]">Bitiş Tarihi</th>
+              <th className="whitespace-normal lg:whitespace-nowrap">
+                Başlangıç Tarihi
+              </th>
+              <th className="whitespace-normal lg:whitespace-nowrap">
+                Bitiş Tarihi
+              </th>
             </tr>
           </thead>
           <tbody>{tableContent}</tbody>
