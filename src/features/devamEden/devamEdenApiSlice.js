@@ -18,6 +18,7 @@ export const devamEdenApiSlice = apiSlice.injectEndpoints({
             )
               project[property] = "----";
           }
+          return project;
         });
         return responseData;
       },

@@ -18,6 +18,7 @@ export const tamamlananProjelerApiSlice = apiSlice.injectEndpoints({
             )
               project[property] = "----";
           }
+          return project;
         });
         return responseData;
       },
