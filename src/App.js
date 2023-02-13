@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import Welcome from "./features/login/Welcome";
 import TamamlananUlusal from "./features/tamamlanan/TamamlananUlusal";
@@ -7,17 +7,21 @@ import DevamEdenUlusal from "./features/devamEden/DevamEdenUlusal";
 import DevamEdenUluslararası from "./features/devamEden/DevamEdenUluslararası";
 import ReactGA from "react-ga4";
 import { useEffect } from "react";
-const TRACKING_ID = "G-W0T0KK648Z";
 
-ReactGA.initialize(TRACKING_ID);
+ReactGA.initialize("G-W0T0KK648Z");
 
 function App() {
-  console.log(window.location.pathname, "den", window.location.search);
+  const location = useLocation();
+
   useEffect(() => {
-    ReactGA._gaCommandSendPageviewParameters(
-      window.location.pathname + window.location.search
-    );
-  }, []);
+    const fullHref = window.location.href;
+    const origin = window.location.origin;
+    const fullPathWithHash = fullHref.startsWith(origin)
+      ? fullHref.slice(origin.length)
+      : fullHref;
+    console.log(fullPathWithHash);
+    ReactGA.send({ hitType: "pageview", page: fullPathWithHash });
+  }, [location]);
 
   return (
     <Routes>
