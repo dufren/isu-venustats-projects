@@ -10,13 +10,13 @@ const Welcome = () => {
         <div>
           <button
             className="btn mr-5 btn-primary"
-            onClick={() => navigate("/projeler/devam-eden-ulusal")}
+            onClick={() => navigate("devam-eden-ulusal")}
           >
             Ulusal
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => navigate("/projeler/devam-eden-uluslararası")}
+            onClick={() => navigate("devam-eden-uluslararası")}
           >
             Uluslararası
           </button>
@@ -28,13 +28,13 @@ const Welcome = () => {
         <div>
           <button
             className="btn mr-5 btn-primary"
-            onClick={() => navigate("projeler/tamamlanan-ulusal")}
+            onClick={() => navigate("tamamlanan-ulusal")}
           >
             Ulusal
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => navigate("projeler/tamamlanan-uluslararası")}
+            onClick={() => navigate("tamamlanan-uluslararası")}
           >
             Uluslararası
           </button>

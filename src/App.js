@@ -11,18 +11,17 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Welcome />} />
-        <Route path="projeler">
-          <Route path="devam-eden-ulusal" element={<DevamEdenUlusal />} />
-          <Route
-            path="devam-eden-uluslararası"
-            element={<DevamEdenUluslararası />}
-          />
-          <Route path="tamamlanan-ulusal" element={<TamamlananUlusal />} />
-          <Route
-            path="tamamlanan-uluslararası"
-            element={<TamamlananUluslararası />}
-          />
-        </Route>
+
+        <Route path="devam-eden-ulusal" element={<DevamEdenUlusal />} />
+        <Route
+          path="devam-eden-uluslararası"
+          element={<DevamEdenUluslararası />}
+        />
+        <Route path="tamamlanan-ulusal" element={<TamamlananUlusal />} />
+        <Route
+          path="tamamlanan-uluslararası"
+          element={<TamamlananUluslararası />}
+        />
       </Route>
     </Routes>
   );

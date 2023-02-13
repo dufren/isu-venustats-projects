@@ -1,5 +1,6 @@
 {
   "name": "isu-venustats-projects",
+  "homepage": "https://beta.istinye.edu.tr/api/projeler/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
