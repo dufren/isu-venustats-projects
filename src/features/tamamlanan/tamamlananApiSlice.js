@@ -4,7 +4,7 @@ export const tamamlananProjelerApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getTamamlananProjeler: builder.query({
       query: () => ({
-        url: process.env.REACT_APP_TAMAMLANAN,
+        url: "/venustats-tamamlanan-projeler-api/api/TamamlananProjeler",
         headers: {
           Authorization: process.env.REACT_APP_AUTH,
         },
