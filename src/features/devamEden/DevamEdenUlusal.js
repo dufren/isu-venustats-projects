@@ -26,7 +26,7 @@ const DevamEdenUlusal = () => {
         <table className="table table-compact w-full">
           <thead className="sticky top-0">
             <tr>
-              <td className="whitespace-normal lg:whitespace-nowrap">
+              <td className="whitespace-normal rounded-none lg:whitespace-nowrap">
                 Fon Sağlayan Kuruluş
               </td>
               <th className="whitespace-normal lg:whitespace-nowrap">
@@ -38,7 +38,7 @@ const DevamEdenUlusal = () => {
               <th className="whitespace-normal lg:whitespace-nowrap">
                 Başlangıç Tarihi
               </th>
-              <th className="whitespace-normal lg:whitespace-nowrap">
+              <th className="whitespace-normal rounded-none lg:whitespace-nowrap">
                 Bitiş Tarihi
               </th>
             </tr>
