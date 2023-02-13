@@ -8,7 +8,7 @@ const TamamlananUluslararası = () => {
 
   if (isLoading || isFetching || isError) {
     return (
-      <PulseLoader className="text-center mt-72" size={50} color={"#828282"} />
+      <PulseLoader className="text-center mt-72" size={50} color={"#0670ab"} />
     );
   }
 

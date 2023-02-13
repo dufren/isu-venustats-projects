@@ -14,12 +14,12 @@ function App() {
 
         <Route path="devam-eden-ulusal" element={<DevamEdenUlusal />} />
         <Route
-          path="devam-eden-uluslararası"
+          path="devam-eden-uluslararasi"
           element={<DevamEdenUluslararası />}
         />
         <Route path="tamamlanan-ulusal" element={<TamamlananUlusal />} />
         <Route
-          path="tamamlanan-uluslararası"
+          path="tamamlanan-uluslararasi"
           element={<TamamlananUluslararası />}
         />
       </Route>

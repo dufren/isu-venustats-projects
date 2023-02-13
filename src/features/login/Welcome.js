@@ -16,7 +16,7 @@ const Welcome = () => {
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => navigate("devam-eden-uluslararası")}
+            onClick={() => navigate("devam-eden-uluslararasi")}
           >
             Uluslararası
           </button>
@@ -34,7 +34,7 @@ const Welcome = () => {
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => navigate("tamamlanan-uluslararası")}
+            onClick={() => navigate("tamamlanan-uluslararasi")}
           >
             Uluslararası
           </button>
