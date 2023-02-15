@@ -24,3 +24,4 @@ export const devamEdenApiSlice = apiSlice.injectEndpoints({
 });
 
 export const { useGetDevamEdenProjelerQuery } = devamEdenApiSlice;
+// testing deployment
