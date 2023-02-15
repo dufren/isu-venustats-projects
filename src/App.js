@@ -19,8 +19,10 @@ function App() {
     const fullPathWithHash = fullHref.startsWith(origin)
       ? fullHref.slice(origin.length)
       : fullHref;
-    console.log(fullPathWithHash);
-    ReactGA.send({ hitType: "pageview", page: fullPathWithHash });
+    ReactGA.send({
+      hitType: "pageview",
+      page: `beta.istinye.edu.tr${fullPathWithHash}`,
+    });
   }, [location]);
 
   return (

@@ -1,8 +1,13 @@
 import { PulseLoader } from "react-spinners";
 import { useGetDevamEdenProjelerQuery } from "./devamEdenApiSlice";
 import Proje from "./Proje";
+import ReactGA from "react-ga4";
+import { useLocation } from "react-router";
 
 const DevamEdenUlusal = () => {
+  const location = useLocation();
+  ReactGA.send({ hitType: "pageview", page: location.pathname });
+
   const { data, isLoading, isSuccess, isError, isFetching } =
     useGetDevamEdenProjelerQuery();
 
