@@ -5,26 +5,8 @@ import TamamlananUlusal from "./features/tamamlanan/TamamlananUlusal";
 import TamamlananUluslararası from "./features/tamamlanan/TamamlananUluslararası";
 import DevamEdenUlusal from "./features/devamEden/DevamEdenUlusal";
 import DevamEdenUluslararası from "./features/devamEden/DevamEdenUluslararası";
-import ReactGA from "react-ga4";
-import { useEffect } from "react";
-
-ReactGA.initialize("G-W0T0KK648Z");
 
 function App() {
-  const location = useLocation();
-
-  useEffect(() => {
-    const fullHref = window.location.href;
-    const origin = window.location.origin;
-    const fullPathWithHash = fullHref.startsWith(origin)
-      ? fullHref.slice(origin.length)
-      : fullHref;
-    ReactGA.send({
-      hitType: "pageview",
-      page: `beta.istinye.edu.tr${fullPathWithHash}`,
-    });
-  }, [location]);
-
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
