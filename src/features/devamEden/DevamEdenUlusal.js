@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
 import { useGetDevamEdenProjelerQuery } from "./devamEdenApiSlice";
 import Proje from "./Proje";
@@ -5,6 +6,8 @@ import Proje from "./Proje";
 const DevamEdenUlusal = () => {
   const { data, isLoading, isSuccess, isError, isFetching } =
     useGetDevamEdenProjelerQuery();
+
+  const [sorted, setSorted] = useState(false);
 
   if (isLoading | isFetching | isError) {
     return (
@@ -17,7 +20,18 @@ const DevamEdenUlusal = () => {
       proje.ddlDevamEdenProjeFonTuru.toLowerCase().includes("ulusal")
     );
 
-    let tableContent =
+    const filteredByProjeAdı = (sorted) => {
+      filteredUlusal.sort((a, b) => {
+        let firstProject = a.devamEdenProjeAdiTxt;
+        let secondProject = b.devamEdenProjeAdiTxt;
+
+        if (sorted) return firstProject.localeCompare(secondProject);
+        else return secondProject.localeCompare(firstProject);
+      });
+      setSorted(!sorted);
+    };
+
+    var tableContent =
       filteredUlusal?.length &&
       filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
 
@@ -32,7 +46,10 @@ const DevamEdenUlusal = () => {
               <th className="whitespace-normal lg:whitespace-nowrap">
                 Çağrı Kodu
               </th>
-              <th className="whitespace-normal lg:whitespace-nowrap">
+              <th
+                onClick={() => filteredByProjeAdı(sorted)}
+                className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
+              >
                 Projenin Adı
               </th>
               <th className="whitespace-normal lg:whitespace-nowrap">
