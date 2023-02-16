@@ -1,10 +1,10 @@
 import { PulseLoader } from "react-spinners";
-import { useGetDevamEdenProjelerQuery } from "./devamEdenApiSlice";
+import { useGetOngoingProjectsQuery } from "./devamEdenApiSlice";
 import Proje from "./Proje";
 
 const DevamEdenUluslararası = () => {
   const { data, isLoading, isSuccess, isError, isFetching } =
-    useGetDevamEdenProjelerQuery();
+    useGetOngoingProjectsQuery();
 
   if (isLoading || isFetching || isError) {
     return (

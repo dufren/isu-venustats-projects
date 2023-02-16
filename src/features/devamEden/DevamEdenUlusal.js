@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
-import { useGetDevamEdenProjelerQuery } from "./devamEdenApiSlice";
+import { useGetOngoingProjectsQuery } from "./devamEdenApiSlice";
 import Proje from "./Proje";
 
 const DevamEdenUlusal = () => {
-  const { data, isLoading, isSuccess, isError, isFetching } =
-    useGetDevamEdenProjelerQuery();
+  const {
+    data: ongoingProjects,
+    isLoading,
+    isSuccess,
+    isError,
+    isFetching,
+  } = useGetOngoingProjectsQuery();
 
-  const [isSorted, setIsSorted] = useState(false);
+  const [isSorted, setIsSorted] = useState(true);
   const [sortedData, setSortedData] = useState([]);
 
   useEffect(() => {
-    setSortedData(data);
-  }, [data]);
+    const filterByNational = ongoingProjects?.filter((project) =>
+      project.ddlDevamEdenProjeFonTuru.toLowerCase().includes("ulusal")
+    );
+    setSortedData(filterByNational);
+  }, [ongoingProjects]);
 
   if (isLoading | isFetching | isError) {
     return (
@@ -21,39 +29,41 @@ const DevamEdenUlusal = () => {
   }
 
   if (isSuccess) {
-    const filteredUlusal = sortedData?.filter((proje) =>
-      proje.ddlDevamEdenProjeFonTuru.toLowerCase().includes("ulusal")
-    );
+    const filterBy = (column) => {
+      let dataForSort = [...sortedData];
 
-    const filteredByProjeAdı = (sorted) => {
-      filteredUlusal.sort((a, b) => {
-        let firstProject = a.devamEdenProjeAdiTxt;
-        let secondProject = b.devamEdenProjeAdiTxt;
+      dataForSort.sort((a, b) => {
+        let firstProject = a[column];
+        let secondProject = b[column];
 
-        if (sorted) return firstProject.localeCompare(secondProject);
+        if (isSorted) return firstProject.localeCompare(secondProject);
         else return secondProject.localeCompare(firstProject);
       });
+
       setIsSorted(!isSorted);
-      setSortedData(filteredUlusal);
+      setSortedData(dataForSort);
     };
 
     var tableContent =
       sortedData?.length &&
-      sortedData.map((proje) => <Proje key={proje.id} proje={proje} />);
+      sortedData.map((project) => <Proje key={project.id} project={project} />);
 
     let content = (
       <div className="overflow-x-auto h-screen">
         <table className="table table-compact w-full">
           <thead className="sticky top-0">
             <tr>
-              <td className="whitespace-normal rounded-none lg:whitespace-nowrap">
+              <td
+                onClick={() => filterBy("devamEdenProjeFonSaglayanKurulusTxt")}
+                className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
+              >
                 Fon Sağlayan Kuruluş
               </td>
               <th className="whitespace-normal lg:whitespace-nowrap">
                 Çağrı Kodu
               </th>
               <th
-                onClick={() => filteredByProjeAdı(isSorted)}
+                onClick={() => filterBy("devamEdenProjeAdiTxt")}
                 className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
               >
                 Projenin Adı

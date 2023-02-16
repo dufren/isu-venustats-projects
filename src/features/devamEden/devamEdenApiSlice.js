@@ -1,8 +1,8 @@
 import { apiSlice } from "../../app/api/apiSlice";
 
-export const devamEdenApiSlice = apiSlice.injectEndpoints({
+export const ongoingProjectsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getDevamEdenProjeler: builder.query({
+    getOngoingProjects: builder.query({
       query: () => ({
         url: "/venustats-devameden-projeler-api/api/DevamEdenProjeler",
         headers: {
@@ -23,4 +23,4 @@ export const devamEdenApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetDevamEdenProjelerQuery } = devamEdenApiSlice;
+export const { useGetOngoingProjectsQuery } = ongoingProjectsApiSlice;

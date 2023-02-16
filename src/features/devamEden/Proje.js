@@ -1,16 +1,18 @@
-const Proje = ({ proje }) => {
+const Proje = ({ project }) => {
   return (
     <tr>
       <td className="whitespace-normal">
-        {proje.devamEdenProjeFonSaglayanKurulusTxt}
-      </td>
-      <td className="whitespace-normal">{proje.devamEdenProjeCagriKoduTxt}</td>
-      <td className="whitespace-normal">{proje.devamEdenProjeAdiTxt}</td>
-      <td className="whitespace-normal">
-        {proje.ddlDevamEdenProjeBaslangicTarihi.split(" ")[0]}
+        {project.devamEdenProjeFonSaglayanKurulusTxt}
       </td>
       <td className="whitespace-normal">
-        {proje.ddlDevamEdenProjeBitisTarihi.split(" ")[0]}
+        {project.devamEdenProjeCagriKoduTxt}
+      </td>
+      <td className="whitespace-normal">{project.devamEdenProjeAdiTxt}</td>
+      <td className="whitespace-normal">
+        {project.ddlDevamEdenProjeBaslangicTarihi.split(" ")[0]}
+      </td>
+      <td className="whitespace-normal">
+        {project.ddlDevamEdenProjeBitisTarihi.split(" ")[0]}
       </td>
     </tr>
   );
