@@ -7,7 +7,12 @@ const DevamEdenUlusal = () => {
   const { data, isLoading, isSuccess, isError, isFetching } =
     useGetDevamEdenProjelerQuery();
 
-  const [sorted, setSorted] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
+  const [sortedData, setSortedData] = useState([]);
+
+  useEffect(() => {
+    setSortedData(data);
+  }, [data]);
 
   if (isLoading | isFetching | isError) {
     return (
@@ -16,7 +21,7 @@ const DevamEdenUlusal = () => {
   }
 
   if (isSuccess) {
-    const filteredUlusal = data?.filter((proje) =>
+    const filteredUlusal = sortedData?.filter((proje) =>
       proje.ddlDevamEdenProjeFonTuru.toLowerCase().includes("ulusal")
     );
 
@@ -28,12 +33,13 @@ const DevamEdenUlusal = () => {
         if (sorted) return firstProject.localeCompare(secondProject);
         else return secondProject.localeCompare(firstProject);
       });
-      setSorted(!sorted);
+      setIsSorted(!isSorted);
+      setSortedData(filteredUlusal);
     };
 
     var tableContent =
-      filteredUlusal?.length &&
-      filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
+      sortedData?.length &&
+      sortedData.map((proje) => <Proje key={proje.id} proje={proje} />);
 
     let content = (
       <div className="overflow-x-auto h-screen">
@@ -47,7 +53,7 @@ const DevamEdenUlusal = () => {
                 Çağrı Kodu
               </th>
               <th
-                onClick={() => filteredByProjeAdı(sorted)}
+                onClick={() => filteredByProjeAdı(isSorted)}
                 className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
               >
                 Projenin Adı
