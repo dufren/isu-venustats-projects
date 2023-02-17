@@ -1,10 +1,41 @@
+import { useState, useEffect } from "react";
 import { PulseLoader } from "react-spinners";
 import Proje from "./Proje";
 import { useGetTamamlananProjelerQuery } from "./tamamlananApiSlice";
 
-const TamamlananUluslararası = () => {
-  const { data, isLoading, isSuccess, isError, isFetching } =
-    useGetTamamlananProjelerQuery();
+const TamamlananUlusal = () => {
+  const {
+    data: completedProjects,
+    isLoading,
+    isSuccess,
+    isError,
+    isFetching,
+  } = useGetTamamlananProjelerQuery();
+
+  const [isSorted, setIsSorted] = useState(true);
+  const [sortedData, setSortedData] = useState(null);
+
+  useEffect(() => {
+    const filterByInternational = completedProjects?.filter((project) =>
+      project.ddlFonTuru.toLowerCase().includes("uluslararası")
+    );
+    setSortedData(filterByInternational);
+  }, [completedProjects]);
+
+  const filterBy = (column) => {
+    let dataForSort = [...sortedData];
+
+    dataForSort.sort((a, b) => {
+      let firstProject = a[column];
+      let secondProject = b[column];
+
+      if (isSorted) return firstProject.localeCompare(secondProject);
+      else return secondProject.localeCompare(firstProject);
+    });
+
+    setIsSorted(!isSorted);
+    setSortedData(dataForSort);
+  };
 
   if (isLoading || isFetching || isError) {
     return (
@@ -13,26 +44,28 @@ const TamamlananUluslararası = () => {
   }
 
   if (isSuccess) {
-    const filteredUlusal = data?.filter((proje) =>
-      proje.ddlFonTuru.toLowerCase().includes("uluslararası")
-    );
-
     let tableContent =
-      filteredUlusal?.length &&
-      filteredUlusal.map((proje) => <Proje key={proje.id} proje={proje} />);
+      sortedData?.length &&
+      sortedData.map((project) => <Proje key={project.id} project={project} />);
 
     let content = (
       <div className="overflow-x-auto h-screen">
         <table className="table table-compact w-full">
           <thead className="sticky top-0">
             <tr>
-              <td className="whitespace-normal rounded-none lg:whitespace-nowrap">
+              <td
+                onClick={() => filterBy("fonSaglayanKurulusTxt")}
+                className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
+              >
                 Fon Sağlayan Kuruluş
               </td>
               <th className="whitespace-normal lg:whitespace-nowrap">
                 Çağrı Kodu
               </th>
-              <th className="whitespace-normal lg:whitespace-nowrap">
+              <th
+                onClick={() => filterBy("projeAdiTxt")}
+                className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
+              >
                 Projenin Adı
               </th>
               <th className="whitespace-normal lg:whitespace-nowrap">
@@ -51,4 +84,4 @@ const TamamlananUluslararası = () => {
   }
 };
 
-export default TamamlananUluslararası;
+export default TamamlananUlusal;

@@ -13,7 +13,7 @@ const DevamEdenUlusal = () => {
   } = useGetOngoingProjectsQuery();
 
   const [isSorted, setIsSorted] = useState(true);
-  const [sortedData, setSortedData] = useState([]);
+  const [sortedData, setSortedData] = useState(null);
 
   useEffect(() => {
     const filterByNational = ongoingProjects?.filter((project) =>
@@ -22,6 +22,21 @@ const DevamEdenUlusal = () => {
     setSortedData(filterByNational);
   }, [ongoingProjects]);
 
+  const filterBy = (column) => {
+    let dataForSort = [...sortedData];
+
+    dataForSort.sort((a, b) => {
+      let firstProject = a[column];
+      let secondProject = b[column];
+
+      if (isSorted) return firstProject.localeCompare(secondProject);
+      else return secondProject.localeCompare(firstProject);
+    });
+
+    setIsSorted(!isSorted);
+    setSortedData(dataForSort);
+  };
+
   if (isLoading | isFetching | isError) {
     return (
       <PulseLoader className="text-center mt-72" size={50} color={"#0670ab"} />
@@ -29,22 +44,7 @@ const DevamEdenUlusal = () => {
   }
 
   if (isSuccess) {
-    const filterBy = (column) => {
-      let dataForSort = [...sortedData];
-
-      dataForSort.sort((a, b) => {
-        let firstProject = a[column];
-        let secondProject = b[column];
-
-        if (isSorted) return firstProject.localeCompare(secondProject);
-        else return secondProject.localeCompare(firstProject);
-      });
-
-      setIsSorted(!isSorted);
-      setSortedData(dataForSort);
-    };
-
-    var tableContent =
+    let tableContent =
       sortedData?.length &&
       sortedData.map((project) => <Proje key={project.id} project={project} />);
 
