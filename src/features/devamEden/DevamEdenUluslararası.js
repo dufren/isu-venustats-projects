@@ -31,10 +31,10 @@ const DevamEdenUluslararası = () => {
     const filterBySearchTerm = filterByInternational?.filter((project) => {
       return (
         project.projeyeFonSaglayanKurulus
-          .toLowerCase()
+          .toLocaleLowerCase()
           .includes(searchTerm.toLocaleLowerCase()) ||
         project.projeAdi
-          .toLowerCase()
+          .toLocaleLowerCase()
           .includes(searchTerm.toLocaleLowerCase()) ||
         project.projeBaslangicTarihi.includes(searchTerm) ||
         project.projeBaslangicTarihi.includes(searchTerm)

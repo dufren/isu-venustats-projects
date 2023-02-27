@@ -7,7 +7,7 @@ const Search = ({ searchTerm, handleSearchTerm }) => {
         type="text"
         value={searchTerm}
         onChange={handleSearchTerm}
-        placeholder="Ara"
+        placeholder="Ara..."
         className="input input-bordered w-full"
       />
     </form>

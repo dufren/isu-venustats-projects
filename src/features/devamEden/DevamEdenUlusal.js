@@ -31,10 +31,10 @@ const DevamEdenUlusal = () => {
     const filterBySearchTerm = filterByNational?.filter((project) => {
       return (
         project.projeyeFonSaglayanKurulus
-          .toLowerCase()
+          .toLocaleLowerCase()
           .includes(searchTerm.toLocaleLowerCase()) ||
         project.projeAdi
-          .toLowerCase()
+          .toLocaleLowerCase()
           .includes(searchTerm.toLocaleLowerCase()) ||
         project.projeBaslangicTarihi.includes(searchTerm) ||
         project.projeBaslangicTarihi.includes(searchTerm)
