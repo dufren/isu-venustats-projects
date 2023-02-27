@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { PulseLoader } from "react-spinners";
 import Proje from "./Proje";
 import { useGetTamamlananProjelerQuery } from "./tamamlananApiSlice";
+import { FilterBy } from "../../helpers/FilterBy";
+import { FilterByDate } from "../../helpers/FilterByDate";
 
 const TamamlananUlusal = () => {
   const {
@@ -17,30 +19,26 @@ const TamamlananUlusal = () => {
 
   useEffect(() => {
     const filterByNational = completedProjects?.filter((project) =>
-      project.ddlFonTuru.toLowerCase().includes("ulusal")
+      project.fonTuru.toLowerCase().includes("ulusal")
     );
+
+    filterByNational?.sort((a, b) => {
+      return (
+        new Date(a.projeBaslangicTarihi) - new Date(b.projeBaslangicTarihi)
+      );
+    });
+
     setSortedData(filterByNational);
   }, [completedProjects]);
 
-  const filterBy = (column) => {
-    let dataForSort = [...sortedData];
-
-    dataForSort.sort((a, b) => {
-      let firstProject = a[column];
-      let secondProject = b[column];
-
-      if (isSorted) return firstProject.localeCompare(secondProject);
-      else return secondProject.localeCompare(firstProject);
-    });
-
-    setIsSorted(!isSorted);
-    setSortedData(dataForSort);
-  };
-
-  if (isLoading || isFetching || isError) {
+  if (isLoading || isFetching) {
     return (
       <PulseLoader className="text-center mt-72" size={50} color={"#0670ab"} />
     );
+  }
+
+  if (isError) {
+    return <h1 className="text-5xl text-center mt-72">Bir hata oluştu.</h1>;
   }
 
   if (isSuccess) {
@@ -54,7 +52,15 @@ const TamamlananUlusal = () => {
           <thead className="sticky top-0">
             <tr>
               <td
-                onClick={() => filterBy("fonSaglayanKurulusTxt")}
+                onClick={() =>
+                  FilterBy(
+                    sortedData,
+                    "projeyeFonSaglayanKurulus",
+                    isSorted,
+                    setIsSorted,
+                    setSortedData
+                  )
+                }
                 className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
               >
                 Fon Sağlayan Kuruluş
@@ -63,15 +69,45 @@ const TamamlananUlusal = () => {
                 Çağrı Kodu
               </th>
               <th
-                onClick={() => filterBy("projeAdiTxt")}
+                onClick={() =>
+                  FilterBy(
+                    sortedData,
+                    "projeAdi",
+                    isSorted,
+                    setIsSorted,
+                    setSortedData
+                  )
+                }
                 className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
               >
                 Projenin Adı
               </th>
-              <th className="whitespace-normal lg:whitespace-nowrap">
+              <th
+                onClick={() =>
+                  FilterByDate(
+                    sortedData,
+                    "projeBaslangicTarihi",
+                    isSorted,
+                    setIsSorted,
+                    setSortedData
+                  )
+                }
+                className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
+              >
                 Başlangıç Tarihi
               </th>
-              <th className="whitespace-normal rounded-none lg:whitespace-nowrap">
+              <th
+                onClick={() =>
+                  FilterByDate(
+                    sortedData,
+                    "projeBitisTarihi",
+                    isSorted,
+                    setIsSorted,
+                    setSortedData
+                  )
+                }
+                className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
+              >
                 Bitiş Tarihi
               </th>
             </tr>

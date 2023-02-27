@@ -12,8 +12,8 @@ export const tamamlananProjelerApiSlice = apiSlice.injectEndpoints({
       transformResponse: (responseData) => {
         responseData.map((project) => {
           for (const property in project) {
-            if (project[property] === ("NULL" || ""))
-              project[property] = "----";
+            if (project[property] === null || project[property] === "-")
+              project[property] = "-----";
           }
           return project;
         });
