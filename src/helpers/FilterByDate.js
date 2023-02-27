@@ -8,8 +8,13 @@ export const FilterByDate = (
   let dataForSort = [...sortedData];
 
   dataForSort.sort((a, b) => {
-    if (isSorted) return new Date(b[column]) - new Date(a[column]);
-    else return new Date(a[column]) - new Date(b[column]);
+    let dateA = new Date(a[column]);
+    let dateB = new Date(b[column]);
+
+    console.log(dateA, dateB);
+
+    if (isSorted) return dateB - dateA;
+    else return dateA - dateB;
   });
 
   setIsSorted(!isSorted);
