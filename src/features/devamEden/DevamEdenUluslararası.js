@@ -16,43 +16,23 @@ const DevamEdenUluslararası = () => {
   } = useGetOngoingProjectsQuery();
 
   const [isSorted, setIsSorted] = useState(true);
-  const [sortedData, setSortedData] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearchTerm = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  const [sortedData, setSortedData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     const filterByInternational = ongoingProjects?.filter((project) =>
       project.fonTuru.toLowerCase().includes("uluslararası")
     );
 
-    const filterBySearchTerm = filterByInternational?.filter((project) => {
-      return (
-        project.projeyeFonSaglayanKurulus
-          .toLocaleLowerCase()
-          .includes(searchTerm.toLocaleLowerCase()) ||
-        project.projeAdi
-          .toLocaleLowerCase()
-          .includes(searchTerm.toLocaleLowerCase()) ||
-        project.projeBaslangicTarihi.includes(searchTerm) ||
-        project.projeBaslangicTarihi.includes(searchTerm)
-      );
-    });
-
-    filterBySearchTerm?.sort((a, b) => {
+    filterByInternational?.sort((a, b) => {
       return (
         new Date(a.projeBaslangicTarihi) - new Date(b.projeBaslangicTarihi)
       );
     });
 
-    if (filterBySearchTerm?.length > 0) {
-      setSortedData(filterBySearchTerm);
-    } else {
-      setSortedData(null);
-    }
-  }, [ongoingProjects, searchTerm]);
+    setSortedData(filterByInternational);
+    setFilteredData(filterByInternational);
+  }, [ongoingProjects]);
 
   if (isLoading | isFetching) {
     return (
@@ -66,13 +46,14 @@ const DevamEdenUluslararası = () => {
 
   if (isSuccess) {
     var tableContent =
-      sortedData?.length &&
-      sortedData.map((project) => <Proje key={project.id} project={project} />);
+      filteredData?.length &&
+      filteredData.map((project) => (
+        <Proje key={project.id} project={project} />
+      ));
 
     let content = (
       <div className="overflow-x-auto h-screen">
-        <Search searchTerm={searchTerm} handleSearchTerm={handleSearchTerm} />
-
+        <Search sortedData={sortedData} setFilteredData={setFilteredData} />
         <table className="table table-compact w-full">
           <thead className="sticky top-0">
             <tr>
