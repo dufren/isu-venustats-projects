@@ -62,14 +62,14 @@ const DevamEdenUlusal = () => {
                 <h1 className="flex flex-row items-center">
                   Fon Sağlayan Kuruluş
                   <BiSortAlt2
-                    className="cursor-pointer"
+                    className="cursor-pointer text-2xl"
                     onClick={() =>
                       FilterBy(
                         sortedData,
                         "projeyeFonSaglayanKurulus",
                         isSorted,
                         setIsSorted,
-                        setSortedData
+                        setFilteredData
                       )
                     }
                   />
@@ -88,10 +88,10 @@ const DevamEdenUlusal = () => {
                         "projeAdi",
                         isSorted,
                         setIsSorted,
-                        setSortedData
+                        setFilteredData
                       )
                     }
-                    className="cursor-pointer"
+                    className="cursor-pointer text-2xl"
                   />
                 </h1>
               </th>
@@ -99,14 +99,14 @@ const DevamEdenUlusal = () => {
                 <h1 className="flex flex-row items-center">
                   Başlangıç Tarihi
                   <BiSortAlt2
-                    className="cursor-pointer"
+                    className="cursor-pointer text-2xl"
                     onClick={() =>
                       FilterByDate(
                         sortedData,
                         "projeBaslangicTarihi",
                         isSorted,
                         setIsSorted,
-                        setSortedData
+                        setFilteredData
                       )
                     }
                   />
@@ -116,14 +116,14 @@ const DevamEdenUlusal = () => {
                 <h1 className="flex flex-row items-center">
                   Bitiş Tarihi
                   <BiSortAlt2
-                    className="cursor-pointer"
+                    className="cursor-pointer text-2xl"
                     onClick={() =>
                       FilterByDate(
                         sortedData,
                         "projeBitisTarihi",
                         isSorted,
                         setIsSorted,
-                        setSortedData
+                        setFilteredData
                       )
                     }
                   />

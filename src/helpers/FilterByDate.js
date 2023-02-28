@@ -3,7 +3,7 @@ export const FilterByDate = (
   column,
   isSorted,
   setIsSorted,
-  setSortedData
+  setFilteredData
 ) => {
   let dataForSort = [...sortedData];
 
@@ -11,12 +11,10 @@ export const FilterByDate = (
     let dateA = new Date(a[column]);
     let dateB = new Date(b[column]);
 
-    console.log(dateA, dateB);
-
     if (isSorted) return dateB - dateA;
     else return dateA - dateB;
   });
 
   setIsSorted(!isSorted);
-  setSortedData(dataForSort);
+  setFilteredData(dataForSort);
 };

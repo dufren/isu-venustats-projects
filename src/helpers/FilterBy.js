@@ -3,7 +3,7 @@ export const FilterBy = (
   column,
   isSorted,
   setIsSorted,
-  setSortedData
+  setFilteredData
 ) => {
   let dataForSort = [...sortedData];
 
@@ -16,5 +16,5 @@ export const FilterBy = (
   });
 
   setIsSorted(!isSorted);
-  setSortedData(dataForSort);
+  setFilteredData(dataForSort);
 };

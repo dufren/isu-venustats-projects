@@ -5,6 +5,7 @@ import { FilterByDate } from "../../helpers/FilterByDate";
 import Proje from "./Proje";
 import { useGetTamamlananProjelerQuery } from "./tamamlananApiSlice";
 import Search from "../../helpers/Search";
+import { BiSortAlt2 } from "react-icons/bi";
 
 const TamamlananUlusal = () => {
   const {
@@ -57,64 +58,76 @@ const TamamlananUlusal = () => {
         <table className="table table-compact w-full">
           <thead className="sticky top-0">
             <tr>
-              <td
-                onClick={() =>
-                  FilterBy(
-                    sortedData,
-                    "projeyeFonSaglayanKurulus",
-                    isSorted,
-                    setIsSorted,
-                    setSortedData
-                  )
-                }
-                className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
-              >
-                Fon Sağlayan Kuruluş
+              <td className="whitespace-normal rounded-none lg:whitespace-nowrap">
+                <h1 className="flex flex-row items-center">
+                  Fon Sağlayan Kuruluş
+                  <BiSortAlt2
+                    className="cursor-pointer text-2xl"
+                    onClick={() =>
+                      FilterBy(
+                        sortedData,
+                        "projeyeFonSaglayanKurulus",
+                        isSorted,
+                        setIsSorted,
+                        setFilteredData
+                      )
+                    }
+                  />
+                </h1>
               </td>
               <th className="whitespace-normal lg:whitespace-nowrap">
                 Çağrı Kodu
               </th>
-              <th
-                onClick={() =>
-                  FilterBy(
-                    sortedData,
-                    "projeAdi",
-                    isSorted,
-                    setIsSorted,
-                    setSortedData
-                  )
-                }
-                className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
-              >
-                Projenin Adı
+              <th className="whitespace-normal lg:whitespace-nowrap">
+                <h1 className="flex flex-row items-center">
+                  Projenin Adı
+                  <BiSortAlt2
+                    onClick={() =>
+                      FilterBy(
+                        sortedData,
+                        "projeAdi",
+                        isSorted,
+                        setIsSorted,
+                        setFilteredData
+                      )
+                    }
+                    className="cursor-pointer text-2xl"
+                  />
+                </h1>
               </th>
-              <th
-                onClick={() =>
-                  FilterByDate(
-                    sortedData,
-                    "projeBaslangicTarihi",
-                    isSorted,
-                    setIsSorted,
-                    setSortedData
-                  )
-                }
-                className="whitespace-normal lg:whitespace-nowrap cursor-pointer"
-              >
-                Başlangıç Tarihi
+              <th className="whitespace-normal lg:whitespace-nowrap">
+                <h1 className="flex flex-row items-center">
+                  Başlangıç Tarihi
+                  <BiSortAlt2
+                    className="cursor-pointer text-2xl"
+                    onClick={() =>
+                      FilterByDate(
+                        sortedData,
+                        "projeBaslangicTarihi",
+                        isSorted,
+                        setIsSorted,
+                        setFilteredData
+                      )
+                    }
+                  />
+                </h1>
               </th>
-              <th
-                onClick={() =>
-                  FilterByDate(
-                    sortedData,
-                    "projeBitisTarihi",
-                    isSorted,
-                    setIsSorted,
-                    setSortedData
-                  )
-                }
-                className="whitespace-normal rounded-none lg:whitespace-nowrap cursor-pointer"
-              >
-                Bitiş Tarihi
+              <th className="whitespace-normal rounded-none lg:whitespace-nowrap">
+                <h1 className="flex flex-row items-center">
+                  Bitiş Tarihi
+                  <BiSortAlt2
+                    className="cursor-pointer text-2xl"
+                    onClick={() =>
+                      FilterByDate(
+                        sortedData,
+                        "projeBitisTarihi",
+                        isSorted,
+                        setIsSorted,
+                        setFilteredData
+                      )
+                    }
+                  />
+                </h1>
               </th>
             </tr>
           </thead>
