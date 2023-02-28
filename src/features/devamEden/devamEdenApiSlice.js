@@ -4,7 +4,7 @@ export const ongoingProjectsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getOngoingProjects: builder.query({
       query: () => ({
-        url: "/venustats-devameden-projeler-api/api/DevamEdenProjeler",
+        url: "/venustats-devameden-projeler-api/api/DevamEdenProjeler/DevamEdenProjelerList",
         headers: {
           Authorization: process.env.REACT_APP_AUTH,
         },
