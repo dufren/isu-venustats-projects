@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { PulseLoader } from "react-spinners";
-import Proje from "./Proje";
+import Proje from "../../components/Proje";
 import { useGetTamamlananProjelerQuery } from "./tamamlananApiSlice";
-import Content from "../../helpers/Content";
+import Content from "../../components/Content";
 
 const TamamlananUlusal = () => {
   const {

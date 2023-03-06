@@ -1,6 +1,6 @@
 import Search from "./Search";
-import { FilterBy } from "./FilterBy";
-import { FilterByDate } from "./FilterByDate";
+import { FilterBy } from "../helpers/FilterBy";
+import { FilterByDate } from "../helpers/FilterByDate";
 import { BiSortAlt2 } from "react-icons/bi";
 
 const Content = ({

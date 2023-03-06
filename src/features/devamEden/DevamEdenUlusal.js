@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
 import { useGetOngoingProjectsQuery } from "./devamEdenApiSlice";
-import Proje from "./Proje";
-import Content from "../../helpers/Content";
+import Proje from "../../components/Proje";
+import Content from "../../components/Content";
 
 const DevamEdenUlusal = () => {
   const {

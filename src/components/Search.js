@@ -23,7 +23,7 @@ const Search = ({ sortedData, setFilteredData }) => {
         type="text"
         onChange={handleSearchChange}
         placeholder="Ara..."
-        className="input w-full"
+        className="input input-bordered w-full"
       />
     </form>
   );
