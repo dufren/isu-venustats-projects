@@ -5,8 +5,8 @@ const Proje = ({ project }) => {
         <td className="border-none">
           <input type="checkbox" id={project.id} className="modal-toggle" />
 
-          <div className="modal">
-            <div className="modal-box whitespace-pre-wrap">
+          <div className="modal bg-transparent">
+            <div className="modal-box whitespace-pre-wrap shadow-2xl shadow-black">
               <h3 className="font-bold text-lg">{project.projeAdi}</h3>
               <br />
               <p>
