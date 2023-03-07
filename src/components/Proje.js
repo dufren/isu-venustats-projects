@@ -10,20 +10,20 @@ const Proje = ({ project }) => {
               <h3 className="font-bold text-lg">{project.projeAdi}</h3>
               <br />
               <p>
-                <span className="font-bold">Çağrı Adı: </span>
-                {project.cagriAdi}
-              </p>
-              <p>
-                <span className="font-bold">Çağrı Kodu: </span>
-                {project.cagriKodu}
-              </p>
-              <p>
                 <span className="font-bold">Yürütücü Adı: </span>
                 {project.adSoyad}
               </p>
               <p>
                 <span className="font-bold">Yürütücü Ekibi: </span>
                 {project.projeEkibi}
+              </p>
+              <p>
+                <span className="font-bold">Çağrı Adı: </span>
+                {project.cagriAdi}
+              </p>
+              <p>
+                <span className="font-bold">Çağrı Kodu: </span>
+                {project.cagriKodu}
               </p>
               <p>
                 <span className="font-bold">Fon Turu: </span>
