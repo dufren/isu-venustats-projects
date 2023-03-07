@@ -8,29 +8,38 @@ const Proje = ({ project }) => {
           <div className="modal">
             <div className="modal-box whitespace-pre-wrap">
               <h3 className="font-bold text-lg">{project.projeAdi}</h3>
-              <p className="py-4">
+              <br />
+              <p>
                 <span className="font-bold">Çağrı Adı: </span>
                 {project.cagriAdi}
               </p>
-              <p className="py-4">
+              <p>
                 <span className="font-bold">Çağrı Kodu: </span>
                 {project.cagriKodu}
               </p>
-              <p className="py-4">
+              <p>
+                <span className="font-bold">Yürütücü Adı: </span>
+                {project.adSoyad}
+              </p>
+              <p>
+                <span className="font-bold">Yürütücü Ekibi: </span>
+                {project.projeEkibi}
+              </p>
+              <p>
                 <span className="font-bold">Fon Turu: </span>
                 {project.fonTuru}
               </p>
-              <p className="py-4">
+              <p>
                 <span className="font-bold">
                   Projeye Fon Sağlayan Kuruluş:{" "}
                 </span>
                 {project.projeyeFonSaglayanKurulus}
               </p>
-              <p className="py-4">
+              <p>
                 <span className="font-bold">Proje Başlangıç Tarihi: </span>
                 {project.projeBaslangicTarihi}
               </p>
-              <p className="py-4">
+              <p>
                 <span className="font-bold">Proje Bitiş Tarihi: </span>
                 {project.projeBitisTarihi}
               </p>
@@ -52,7 +61,7 @@ const Proje = ({ project }) => {
         <td className="whitespace-normal ">
           <label
             htmlFor={project.id}
-            className="cursor-pointer border-b border-white hover:border-black"
+            className="cursor-pointer border-b border-black text-blue-800"
           >
             {project.projeAdi}
           </label>

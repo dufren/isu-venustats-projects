@@ -38,7 +38,7 @@ const Content = ({
             </th>
             <th className="whitespace-normal lg:whitespace-nowrap">
               <h1 className="flex flex-row items-center">
-                Projenin Adı
+                PROJENİN ADI
                 <BiSortAlt2
                   onClick={() =>
                     FilterBy(

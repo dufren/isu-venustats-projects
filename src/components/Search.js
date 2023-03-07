@@ -22,7 +22,7 @@ const Search = ({ sortedData, setFilteredData }) => {
       <input
         type="text"
         onChange={handleSearchChange}
-        placeholder="Ara..."
+        placeholder="Tabloda ara..."
         className="input input-bordered w-full"
       />
     </form>
