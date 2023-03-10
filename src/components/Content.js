@@ -18,7 +18,7 @@ const Content = ({
           <tr>
             <td className="whitespace-normal rounded-none lg:whitespace-nowrap">
               <h1 className="flex flex-row items-center">
-                Fon Sağlayan Kuruluş
+                Fon Sağlayan Kuruluş - Çağrı Kodu
                 <BiSortAlt2
                   className="cursor-pointer text-2xl"
                   onClick={() =>
@@ -33,9 +33,7 @@ const Content = ({
                 />
               </h1>
             </td>
-            <th className="whitespace-normal lg:whitespace-nowrap">
-              Çağrı Kodu
-            </th>
+            <th className="whitespace-normal lg:whitespace-nowrap">Proje No</th>
             <th className="whitespace-normal lg:whitespace-nowrap">
               <h1 className="flex flex-row items-center">
                 PROJENİN ADI

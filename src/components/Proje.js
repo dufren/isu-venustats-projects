@@ -10,38 +10,32 @@ const Proje = ({ project }) => {
               <h3 className="font-bold text-lg">{project.projeAdi}</h3>
               <br />
               <p>
+                <span className="font-bold">Akademik Birim: </span>
+                {project.akademikBirim}
+              </p>
+              <p>
+                <span className="font-bold">Bölüm/Program: </span>
+                {project.bolumProgram}
+              </p>
+              <p>
                 <span className="font-bold">Yürütücü Adı: </span>
                 {project.adSoyad}
               </p>
               <p>
-                <span className="font-bold">Yürütücü Ekibi: </span>
+                <span className="font-bold">Proje Ekibi: </span>
                 {project.projeEkibi}
               </p>
               <p>
-                <span className="font-bold">Çağrı Adı: </span>
-                {project.cagriAdi}
+                <span className="font-bold">Proje Bütçesi: </span>
+                {project.projeButcesi}
               </p>
               <p>
-                <span className="font-bold">Çağrı Kodu: </span>
-                {project.cagriKodu}
+                <span className="font-bold">Özet:</span>
+                {project.projeninOzetiTR}
               </p>
               <p>
-                <span className="font-bold">Fon Turu: </span>
-                {project.fonTuru}
-              </p>
-              <p>
-                <span className="font-bold">
-                  Projeye Fon Sağlayan Kuruluş:{" "}
-                </span>
-                {project.projeyeFonSaglayanKurulus}
-              </p>
-              <p>
-                <span className="font-bold">Proje Başlangıç Tarihi: </span>
-                {project.projeBaslangicTarihi}
-              </p>
-              <p>
-                <span className="font-bold">Proje Bitiş Tarihi: </span>
-                {project.projeBitisTarihi}
+                <span className="font-bold">Anahtar Kelimeler:</span>
+                {project.projeAnahtarKelimeleriTR}
               </p>
               <div className="modal-action">
                 <label htmlFor={project.id} className="btn">
@@ -55,9 +49,9 @@ const Proje = ({ project }) => {
 
       <tr>
         <td className="whitespace-normal ">
-          {project.projeyeFonSaglayanKurulus}
+          {project.projeyeFonSaglayanKurulus} {project.cagriKodu}
         </td>
-        <td className="whitespace-normal ">{project.cagriKodu}</td>
+        <td className="whitespace-normal ">{project.projeId}</td>
         <td className="whitespace-normal ">
           <label
             htmlFor={project.id}
