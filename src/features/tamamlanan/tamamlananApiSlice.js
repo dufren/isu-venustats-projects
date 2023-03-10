@@ -13,7 +13,7 @@ export const tamamlananProjelerApiSlice = apiSlice.injectEndpoints({
         responseData.map((project) => {
           for (const property in project) {
             if (project[property] === null || project[property] === "-")
-              project[property] = "-----";
+              project[property] = "-";
           }
           return project;
         });

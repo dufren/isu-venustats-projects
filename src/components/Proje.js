@@ -49,7 +49,8 @@ const Proje = ({ project }) => {
 
       <tr>
         <td className="whitespace-normal ">
-          {project.projeyeFonSaglayanKurulus} {project.cagriKodu}
+          {project.projeyeFonSaglayanKurulus} {project.programYurutucusu}{" "}
+          {project.cagriKodu}
         </td>
         <td className="whitespace-normal ">{project.projeId}</td>
         <td className="whitespace-normal ">
