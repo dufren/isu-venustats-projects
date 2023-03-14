@@ -18,14 +18,16 @@ const Search = ({ sortedData, setFilteredData }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-3">
-      <input
-        type="text"
-        onChange={handleSearchChange}
-        placeholder="Tabloda ara..."
-        className="input input-bordered w-full"
-      />
-    </form>
+    <>
+      <form onSubmit={handleSubmit} className="mb-3">
+        <input
+          type="text"
+          onChange={handleSearchChange}
+          placeholder="Tabloda ara..."
+          className="input input-bordered w-full"
+        />
+      </form>
+    </>
   );
 };
 

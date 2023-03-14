@@ -5,6 +5,7 @@ import { BiSortAlt2 } from "react-icons/bi";
 
 const Content = ({
   sortedData,
+  filteredData,
   setFilteredData,
   isSorted,
   setIsSorted,
@@ -13,6 +14,10 @@ const Content = ({
   return (
     <div className="overflow-x-auto h-screen">
       <Search sortedData={sortedData} setFilteredData={setFilteredData} />
+      <span className="font-medium">
+        Tabloda <span className="text-blue-800">{filteredData?.length}</span>{" "}
+        adet sonuç bulundu.
+      </span>
       <table className="table table-compact w-full">
         <thead className="sticky top-0">
           <tr>

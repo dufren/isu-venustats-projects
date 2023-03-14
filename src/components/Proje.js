@@ -48,10 +48,7 @@ const Proje = ({ project }) => {
       </tr>
 
       <tr>
-        <td className="whitespace-normal ">
-          {project.projeyeFonSaglayanKurulus} {project.programYurutucusu}{" "}
-          {project.cagriKodu}
-        </td>
+        <td className="whitespace-normal ">{project.programTuru}</td>
         <td className="whitespace-normal ">{project.projeId}</td>
         <td className="whitespace-normal ">
           <label

@@ -52,6 +52,7 @@ const DevamEdenUluslararası = () => {
     return (
       <Content
         sortedData={sortedData}
+        filteredData={filteredData}
         setFilteredData={setFilteredData}
         isSorted={isSorted}
         setIsSorted={setIsSorted}
